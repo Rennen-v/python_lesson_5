@@ -1,6 +1,6 @@
 from copy import copy
 # 2) выводит список всех делителей числа;
-def all_divisor (number):
+def all_divisor (number,should_print = False):
     all_divisor_number = []
     counter = 1
     while counter!= (number+1):
@@ -9,17 +9,20 @@ def all_divisor (number):
             counter +=1
         else:
             counter += 1
-    print("Всего делителей числа:",len(all_divisor_number), all_divisor_number)
+    if should_print:
+        print("Всего делителей числа:",len(all_divisor_number), all_divisor_number)
     return all_divisor_number
 # 1) проверка числа на простоту (простые числа - это те числа у которых делители единица и они сами);
-def prime_number (p_number):
+def prime_number (p_number,should_print = False):
     all_divisor_number = all_divisor(p_number)
     print(all_divisor(p_number))
     if len(all_divisor_number)>2:
-        print (p_number, "- не простое число т.к. имеет больше 2х делителей")
+        if should_print:
+            print (p_number, "- не простое число т.к. имеет больше 2х делителей")
         return False
     else:
-        print(p_number, "- действительно простое число")
+        if should_print:
+            print(p_number, "- действительно простое число")
         return True
 # 3) выводит самый большой простой делитель числа.
 def biggest_devider (devider):
